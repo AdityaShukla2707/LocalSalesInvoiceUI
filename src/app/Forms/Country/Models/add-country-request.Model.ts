@@ -1,4 +1,5 @@
 export interface addCountryRequest {
-    code: string;
     name :string;
+    CountryCode: string;
+    Description :string;
 }

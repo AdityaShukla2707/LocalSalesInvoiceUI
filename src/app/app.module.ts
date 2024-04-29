@@ -7,8 +7,7 @@ import { NevbarComponent } from './core/Component/nevbar/nevbar.component';
 import { ListCountryComponent } from './Forms/Country/list-country/list-country.component';
 import { CountryAddComponent } from './Forms/Country/country-add/country-add.component';
 import { FormsModule } from '@angular/forms';
-
-
+import{HttpClientModule} from'@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +21,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
     
   ],
   providers: [],

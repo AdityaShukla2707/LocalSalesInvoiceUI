@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { addCountryRequest } from '../Models/add-country-request.Model';
+import { CountryService } from '../Services/country.service';
 
 
 @Component({
@@ -10,15 +11,25 @@ import { addCountryRequest } from '../Models/add-country-request.Model';
 export class CountryAddComponent {
   model: addCountryRequest;
 
-  constructor(){
+  constructor(private countryService : CountryService){
     this.model = {
-      code :'',
-      name:''
+      CountryCode :'',
+      name:'',
+      Description:''
     };
   }
   onSubmit(){
     //to test on console 
     console.log(this.model);
+    if(this.model.Description == '' ||this.model.Description ==null){
+      this.model.Description = 'Same For ALL';
+    }
+    this.countryService.AddCountry(this.model).subscribe({
+      next : (response) =>{
+      alert('data saved');
+      }
+    })
+
     
   }
 }
