@@ -1,0 +1,19 @@
+<div class="container">
+ <h1 class="mt-3">Add country</h1>
+<form #form="ngForm" (ngSubmit)="onSubmit()">
+    <div class="mt-2">
+        <div class="mt-3">
+            <label class="form-label"> Code</label>
+            <input type="text" id="categoryCode" class="form-control" name="categoryCode" [(ngModel)]="model.code">
+        </div>
+        <div class="mt-3">
+            <label class="form-label"> Name</label>
+            <input type="text" id="categoryName" class="form-control" name="categoryName" [(ngModel)]="model.name">
+        </div>
+        <div class="mt-3 center">
+            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="Back" class="btn btn-primary">Back_</button> 
+        </div>
+    </div>
+</form>
+</div>
