@@ -8,22 +8,28 @@
         </div>
     </div>
     <div class="row">
+        <ng-container *ngIf="Countries">
         <div class="table" id="tblCountry">
             <thead class="thead-dark">
                 <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Country Name</th>
-                  <th scope="col">Country Code</th>
+                  <th scope="col" class="hide">Id</th>
+                  <th scope="col">Country</th>
+                  <th scope="col">Code</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Action</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    
+                <tr *ngFor="let country of Countries">
+                    <td class="hide">{{country.id}}</td>
+                    <td>{{country.name}}</td>
+                    <td>{{country.countryCode}}</td>
+                    <td>{{country.description}}</td>
+                    <td><button type="submit" class="btn btn-Success">Edit</button></td>
                   </tr>
               </tbody>
         </div>
+    </ng-container>
+
     </div>
 </div>
