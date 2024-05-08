@@ -2,6 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { addCountryRequest } from '../Models/add-country-request.Model';
 import { CountryService } from '../Services/country.service';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,7 +15,7 @@ export class CountryAddComponent implements OnDestroy {
 private addCountrySubscription? : Subscription
 
 
-  constructor(private countryService : CountryService){
+  constructor(private countryService : CountryService, private router: Router){
     this.model = {
       CountryCode :'',
       name:'',
@@ -30,7 +31,7 @@ private addCountrySubscription? : Subscription
     }
     this.addCountrySubscription = this.countryService.AddCountry(this.model).subscribe({
       next : (response) =>{
-      console.log('add data successfully!')
+      this.router.navigateByUrl("/Forms/CountryList");
       }
     })
 

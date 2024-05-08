@@ -8,6 +8,7 @@ import { ListCountryComponent } from './Forms/Country/list-country/list-country.
 import { CountryAddComponent } from './Forms/Country/country-add/country-add.component';
 import { FormsModule } from '@angular/forms';
 import{HttpClientModule} from'@angular/common/http';
+import { CountryEditComponent } from './Forms/Country/country-edit/country-edit.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import{HttpClientModule} from'@angular/common/http';
     NevbarComponent,
     ListCountryComponent,
     CountryAddComponent,
+    CountryEditComponent,
     
     
   ],
