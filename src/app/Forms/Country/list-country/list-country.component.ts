@@ -20,4 +20,14 @@ export class ListCountryComponent implements OnInit {
     }
    });
  }
+
+ onDelete(id :string): void{
+debugger;
+  this.countryService.DelateCountry(id).subscribe({
+    next : (response) =>{
+      this.ngOnInit();
+    }
+  });
+  
+ }
 }

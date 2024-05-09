@@ -4,6 +4,7 @@ import { EditCountryRequest } from '../Models/edit-country-request.model';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Country } from '../Models/Country.Model';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
@@ -16,18 +17,22 @@ export class CountryService {
 
    
    GetCountryById(id:string):Observable<EditCountryRequest>{
-     return this.http.get<EditCountryRequest>(`https://localhost:7174/api/Country/GetCountryById/${id}`);
+     return this.http.get<EditCountryRequest>(`${environment.apiPath}/Country/GetCountryById/${id}`);
    }
    EditCountry(model: EditCountryRequest):Observable<void>{
     console.log(model);
-    return this.http.put<void>('https://localhost:7174/api/Country/UpdateCountry', model)
+    return this.http.put<void>(`${environment.apiPath}/Country/UpdateCountry`, model)
    }
    AddCountry(model: addCountryRequest):Observable<void>{
     console.log(model);
-    return this.http.post<void>('https://localhost:7174/api/Country/CreateCountry', model)
+    return this.http.post<void>(`${environment.apiPath}/Country/CreateCountry`, model)
    }
 
    getCountryList() : Observable<Country[]>{
-    return this.http.get<Country[]>('https://localhost:7174/api/Country/GetAllCountries')
+    return this.http.get<Country[]>(`${environment.apiPath}/Country/GetAllCountries`)
    }
+
+   DelateCountry(id:string):Observable<Country>{
+    return this.http.delete<Country>(`${environment.apiPath}/Country/DeleteCountry/${id}`);
+  }
 } 
